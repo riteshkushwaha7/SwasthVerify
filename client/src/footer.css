@@ -1,0 +1,38 @@
+.footer {
+  background: linear-gradient(145deg, #092248, #20324a); /* Yass Queen to Sister Sister */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .footer a {
+    color: #f9c5bd; /* Misty Mountain Pink */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 5px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer .social-icons {
+    margin-top: 10px;
+  }
+  
+  .footer .social-icons a {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #9bc400; /* Grassy Green */
+    transition: color 0.3s ease;
+  }
+  
+  .footer .social-icons a:hover {
+    color: #f9c5bd; /* Misty Mountain Pink */
+  }
+  

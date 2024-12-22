@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9c5bd; /* Misty Mountain Pink */
+}
+
+header {
+  background-color: #8076a3; /* Purple Mountains Majesty */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.image-upload,
+.about-project {
+  text-align: center;
+  padding: 20px;
+}
+
+.result img {
+  max-width: 300px;
+  margin: 20px 0;
+}
+
+.red {
+  color: red;
+}
+
+footer {
+  background-color: #7c677f; /* Factory Stone Purple */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}

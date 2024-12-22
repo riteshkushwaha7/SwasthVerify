@@ -1,0 +1,132 @@
+/* About Project Section */
+.about-project {
+  background: linear-gradient(145deg, #ff1d58, #f75990); /* Yass Queen to Sister Sister */
+  color: #7c677f; /* Factory Stone Purple */
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.8;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header Styling */
+.about-project h2 {
+  color: #fff685; /* Crown Yellow */
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: 600;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Paragraphs Styling */
+.about-project div {
+  font-size: 1.15em;
+  margin-bottom: 20px;
+  color: #fff; /* White for readability */
+  text-align: justify;
+  line-height: 1.6;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Highlighted Text */
+.about-project .highlight {
+  font-weight: bold;
+  color: #fff685; /* Crown Yellow */
+  background: linear-gradient(145deg, #ff1d58, #f75990); /* Yass Queen to Sister Sister */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Technologies Used List */
+.about-project ul {
+  margin-top: 20px;
+  padding-left: 30px;
+  list-style: none;
+}
+
+.about-project ul li {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 1.1em;
+  position: relative;
+  padding-left: 25px;
+}
+
+.about-project ul li::before {
+  content: "\2022"; /* Bullet point */
+  color: #fff685; /* Crown Yellow */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5em;
+}
+
+/* Button Styling */
+.about-project button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 30px;
+  background-color: #0049B7; /* Brutal Blue */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-project button:hover {
+  background-color: #00DDFF; /* Blue Light */
+  transform: translateY(-3px);
+}
+
+.about-project button:active {
+  transform: translateY(2px);
+}
+
+.about-project button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 221, 255, 0.6); /* Blue Light */
+}
+
+/* Footer (if applicable) */
+footer {
+  background: linear-gradient(145deg, #0049B7, #00DDFF); /* Brutal Blue to Blue Light */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 50px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-project {
+    padding: 30px 15px;
+    margin: 20px auto;
+  }
+
+  .about-project h2 {
+    font-size: 2em;
+  }
+
+  .about-project div {
+    font-size: 1em;
+  }
+}
