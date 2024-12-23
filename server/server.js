@@ -22,7 +22,7 @@ const Chemical = mongoose.model('Chemical', chemicalSchema);
 const app = express();
 
 // Setup CORS and JSON parsing
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));  // Adjust origin to match your frontend domain if needed
 app.use(express.json());
 
 // Setup file upload directory
@@ -59,6 +59,7 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
     console.error('Error during OCR processing:', error);
     res.status(500).json({ message: 'Error processing the image.' });
   } finally {
+    // Delete the uploaded file after processing
     fs.unlink(filePath, (err) => {
       if (err) console.error('Error deleting file:', err);
     });
