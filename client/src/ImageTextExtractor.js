@@ -22,7 +22,7 @@ const ImageTextExtractor = ({ setExtractedText, setImage }) => {
     formData.append('image', imageFile);
 
     try {
-      const response = await axios.get('https://swasthverify.onrender.com/', formData, {
+      const response = await axios.get('https://swasthverify.onrender.com/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
