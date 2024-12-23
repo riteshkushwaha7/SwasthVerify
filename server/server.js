@@ -22,7 +22,7 @@ const Chemical = mongoose.model('Chemical', chemicalSchema);
 const app = express();
 
 // Setup CORS and JSON parsing
-app.use(cors({ origin: 'http://localhost:3000' }));  // Adjust origin to match your frontend domain if needed
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 app.use(express.json());
 
 // Setup file upload directory
@@ -37,7 +37,7 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}${path.extname(file.originalname)}`); // Unique filename
+    cb(null, `${Date.now()}${path.extname(file.originalname)}`);
   }
 });
 const upload = multer({ storage });
@@ -50,7 +50,6 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
 
   const filePath = req.file.path;
   try {
-    // Extract text from the image using Tesseract.js
     const { data: { text } } = await Tesseract.recognize(filePath, 'eng', {
       logger: (m) => console.log(m)
     });
@@ -59,7 +58,6 @@ app.post('/api/upload', upload.single('image'), async (req, res) => {
     console.error('Error during OCR processing:', error);
     res.status(500).json({ message: 'Error processing the image.' });
   } finally {
-    // Delete the uploaded file after processing
     fs.unlink(filePath, (err) => {
       if (err) console.error('Error deleting file:', err);
     });
@@ -71,7 +69,6 @@ app.post('/api/search-ingredients', async (req, res) => {
   const { ingredients } = req.body;
 
   try {
-    // Fetch harmful chemicals from MongoDB
     const harmfulChemicalsData = await Chemical.findOne({});
     
     if (!harmfulChemicalsData) {
