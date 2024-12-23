@@ -17,7 +17,7 @@ const App = () => {
     const words = extractedText.split(/\s+/).filter(word => word.trim().length > 0); // Split text into words
 
     try {
-      const response = await axios.post('http://localhost:5000/api/search-ingredients', { ingredients: words });
+      const response = await axios.get('https://swasthverify.onrender.com/search-ingredients', { ingredients: words });
 
       if (response.data.count > 0) {
         setHarmfulChemicals(response.data.count);
