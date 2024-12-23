@@ -13,24 +13,33 @@ const App = () => {
   const [harmfulChemicals, setHarmfulChemicals] = useState(0); // Harmful chemicals count
 
   // Handle form submission
-  const handleSubmit = async () => {
-    const words = extractedText.split(/\s+/).filter(word => word.trim().length > 0); // Split text into words
+const handleSubmit = async () => {
+  const words = extractedText.split(/\s+/).filter(word => word.trim().length > 0); // Split text into words
 
-    try {
-      const response = await axios.get('https://swasthverify.onrender.com/search-ingredients', { ingredients: words });
-
-      if (response.data.count > 0) {
-        setHarmfulChemicals(response.data.count);
-        setResponseMessage(`Found harmful chemicals: ${response.data.harmfulChemicals.join(', ')}`);
-      } else {
-        setHarmfulChemicals(0);
-        setResponseMessage('No harmful chemicals found.');
+  try {
+    const response = await axios.post(
+      'https://swasthverify.onrender.com/search-ingredients',
+      { ingredients: words }, // Payload
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    } catch (error) {
-      console.error('Error checking chemicals:', error);
-      setResponseMessage('Error checking harmful chemicals.');
+    );
+
+    if (response.data.count > 0) {
+      setHarmfulChemicals(response.data.count);
+      setResponseMessage(`Found harmful chemicals: ${response.data.harmfulChemicals.join(', ')}`);
+    } else {
+      setHarmfulChemicals(0);
+      setResponseMessage('No harmful chemicals found.');
     }
-  };
+  } catch (error) {
+    console.error('Error checking chemicals:', error);
+    setResponseMessage('Error checking harmful chemicals.');
+  }
+};
+
 
   return (
     <Router>
