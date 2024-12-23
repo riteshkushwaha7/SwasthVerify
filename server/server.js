@@ -22,7 +22,7 @@ const Chemical = mongoose.model('Chemical', chemicalSchema);
 const app = express();
 
 // Setup CORS and JSON parsing
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://swasth-verify.vercel.app' })); // Make sure Vercel frontend URL is added here
 app.use(express.json());
 
 // Setup file upload directory
@@ -70,7 +70,7 @@ app.post('/api/search-ingredients', async (req, res) => {
 
   try {
     const harmfulChemicalsData = await Chemical.findOne({});
-    
+
     if (!harmfulChemicalsData) {
       return res.status(500).json({ message: 'Harmful chemicals data not found in MongoDB' });
     }
